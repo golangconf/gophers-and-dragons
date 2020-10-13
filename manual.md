@@ -98,6 +98,7 @@ Cards that need to be obtained before becoming available:
 | Imp | 5 | 3-4 || 5 | 1 |
 | Lion | 10 | 2-3 || 6 | 2 |
 | Fairy | 9 | 4-5 | Ranged | 11 | 2 |
+| Claws | 12 | 3-3 | Bloodlust | 11 | 2 |
 | Mummy | 18 | 3-4 | WeakToFire, Slow | 15 | 3 |
 | Dragon | 30 | 5-6 | MagicImmunity | 35 | 0 |
 
@@ -107,6 +108,7 @@ Cards that need to be obtained before becoming available:
 |---|---|
 | Coward | Doesn't attack until you attack it first |
 | Ranged | Attacks can't be parried |
+| Bloodlust | Deals x2 damage on avatar if avatar HP is less than 20 |
 | WeakToFire | Fire attacks deal x2 damage |
 | Slow | When running away from a slow enemy, no damage is taken |
 | MagicImmunity | 100% magic damage resist |
