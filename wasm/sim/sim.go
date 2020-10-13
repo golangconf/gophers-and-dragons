@@ -148,8 +148,8 @@ func (r *runner) peekCreep(round int) game.CreepType {
 
 	roll := r.rand.Intn(99)
 
-	// First 5 rounds can't have high-tier enemies.
-	if r.state.Round <= 5 {
+	// First 6 rounds can't have high-tier enemies.
+	if r.state.Round <= 6 {
 		switch {
 		case roll >= 90: // 10%
 			return game.CreepFairy
