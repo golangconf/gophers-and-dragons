@@ -131,3 +131,4 @@ Cards that need to be obtained before becoming available:
 
 * If your tactic panics, you won't get a stack trace
 * If [yaegi](https://github.com/traefik/yaegi) fails to compile or run your code, you'll have to change it even if it's a valid Go code
+* You may do a dot-import of the `game` package, but it'll make compile errors more obscure; althought the tactic code will be terser
