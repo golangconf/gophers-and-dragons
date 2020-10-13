@@ -67,6 +67,7 @@ The [game](https://godoc.org/github.com/golangconf/gophers-and-dragons/game) pac
 * Retreating can be a valid choice in some situations
 * There are non-obvious approaches that may yield good results
 * Read the [game](https://godoc.org/github.com/golangconf/gophers-and-dragons/game) package doc comments if you don't understand something
+* Don't understimate the ability to check the next creep information
 
 ## Controls
 
