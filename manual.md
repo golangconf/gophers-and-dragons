@@ -114,6 +114,7 @@ Cards that need to be obtained before becoming available:
 | Fairy | 9 | 4-5 | Ranged | 11 | 2 |
 | Claws | 12 | 3-3 | Bloodlust | 11 | 2 |
 | Mummy | 18 | 3-4 | WeakToFire, Slow | 15 | 3 |
+| Kubus | 20 | 1-1 | IncrementalComplexity, Slow | 25 | 2 |
 | Dragon | 30 | 5-6 | MagicImmunity | 35 | 0 |
 
 ## Creep traits
@@ -125,6 +126,7 @@ Cards that need to be obtained before becoming available:
 | Bloodlust | Deals x2 damage on avatar if avatar HP is less than 20 |
 | WeakToFire | Fire attacks deal x2 damage |
 | Slow | When running away from a slow enemy, no damage is taken |
+| IncrementalComplexity | Every time it attacks, it gets +1 damage |
 | MagicImmunity | 100% magic damage resist |
 
 ## Known issues and limitations
