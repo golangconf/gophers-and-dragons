@@ -59,9 +59,13 @@ The [game](https://godoc.org/github.com/golangconf/gophers-and-dragons/game) pac
 
 ## Hints
 
+* You're encouraged to write code in your preferred IDE/editor; web view is only for debugging and submitting
+* Run, pause and use "next turn" to get a debugger-like experience
 * Don't forget that you can use global vars, constants and types; almost anything you may want to use
 * You can use a `game.Creeps[<CreepType>]` to get arbitrary creep stats
 * You can use a `game.Cards[<CardType>]` to get arbitrary card stats
+* Retreating can be a valid choice in some situations
+* There are non-obvious approaches that may yield good results
 
 ## Controls
 
