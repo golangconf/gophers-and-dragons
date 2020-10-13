@@ -15,8 +15,12 @@ func tactic1(s game.State) game.CardType {
 
 // tactic2 will only fight with the easiest kind of
 // monsters and will run away if wounded.
+// It can also use heal when it's available.
 func tactic2(s game.State) game.CardType {
 	if s.Avatar.HP < 10 {
+		if s.Can(game.CardHeal) {
+			return game.CardHeal
+		}
 		return game.CardRetreat
 	}
 	if s.Creep.Type == game.CreepCheepy {
