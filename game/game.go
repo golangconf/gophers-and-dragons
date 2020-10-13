@@ -41,11 +41,16 @@ type State struct {
 }
 
 // Can reports whether it's legal to do a cardType move.
+// It takes TraitMagicAura into the account.
 func (st *State) Can(cardType CardType) bool {
 	if st.Deck[cardType].Count == 0 {
 		return false // Card is unavailable
 	}
-	if st.Avatar.MP < st.Deck[cardType].MP {
+	needMP := st.Deck[cardType].MP
+	if needMP > 0 && st.Creep.Traits.Has(TraitMagicAura) {
+		needMP-- // Magic aura makes spells cost 1 less MP
+	}
+	if st.Avatar.MP < needMP {
 		return false // Not enougn mana
 	}
 	return true
@@ -197,4 +202,5 @@ const (
 	TraitRanged
 	TraitBloodlust
 	TraitIncrementalComplexity
+	TraitMagicAura
 )

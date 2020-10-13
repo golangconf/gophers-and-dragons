@@ -192,6 +192,7 @@ func (r *runner) runCreepAction(parried bool) {
 	if creep.Traits.Has(game.TraitIncrementalComplexity) {
 		damageRoll += r.creepAttacks
 	}
+	r.creepAttacks++
 	if parried {
 		if !creep.Traits.Has(game.TraitRanged) {
 			creep.HP -= damageRoll
@@ -205,7 +206,6 @@ func (r *runner) runCreepAction(parried bool) {
 	avatar.HP -= damageRoll
 	r.out = append(r.out, simstep.UpdateHP{Delta: -damageRoll})
 	r.emitRedLogf("%s deals %d damage", creep.Type.String(), damageRoll)
-	r.creepAttacks++
 }
 
 func (r *runner) runAvatarAction(cardType game.CardType, card game.CardStats) bool {
@@ -226,14 +226,19 @@ func (r *runner) runAvatarAction(cardType game.CardType, card game.CardStats) bo
 		changeDeckCardCount(r.state.Deck, cardType, -1)
 	}
 
-	if card.MP != 0 {
-		if avatar.MP < card.MP {
+	// For 0-cost cards needMP may become negative.
+	needMP := card.MP
+	if creep.Traits.Has(game.TraitMagicAura) {
+		needMP--
+	}
+	if needMP > 0 {
+		if avatar.MP < needMP {
 			r.emitRedLogf("Not enough mana to use %s", cardType.String())
 			r.badMoves++
 			return false
 		}
-		avatar.MP -= card.MP
-		r.out = append(r.out, simstep.UpdateMP{Delta: -card.MP})
+		avatar.MP -= needMP
+		r.out = append(r.out, simstep.UpdateMP{Delta: -needMP})
 	}
 
 	switch cardType {
