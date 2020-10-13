@@ -25,8 +25,7 @@
     </select>
     <input title="Pause the simulation; space is a hotkey" id="button_pause" type="button" value="Pause" style="width: 96px">
     <input title="Advance 1 turn forward (only works when paused)" id="button_next_turn" type="button" value="Next Turn" style="width: 96px">
-    <input title="Format the source code with gofmt" id="button_format" type="button" value="Format" style="width: 96px">
-    <input title="Submit your code an participate in the tournament" id="button_submit" type="button" value="Submit" style="width: 96px">
+    <input title="Format the source code with gofmt" id="button_format" type="button" value="Format" style="width: 96px">    
     <a href="https://github.com/golangconf/gophers-and-dragons/blob/master/manual.md" style="margin-left: 32px; line-height: 30px">Open documentation</a>
 </div>
 
@@ -75,6 +74,7 @@ func tactic2(s game.State) game.CardType {
             <div title="Current round number" style="margin-top: 4px; width: 120px; float: left">
                 Round: <span id="status_round">0</span>/10
             </div>
+            <input title="Submit your code an participate in the tournament" id="button_submit" type="button" value="Submit" style="width: 96px; display: none">
         </div>
 
         <div id="log" style="padding: 8px; margin-left: 8px; float: left; width: 400px; height: 360px; border: 1px solid black; overflow-y: scroll">

@@ -132,6 +132,7 @@ export function main() {
     let currentSimulationInterval = null;
     let currentSimulationPlayer: SimulationPlayer = null;
     let lastNickname = '';
+    let submittedSet = {};
 
     function setCreep(name: string, hp: number) {
         elements.creep.pic.src = `img/creep/${name}.png`;
@@ -180,6 +181,8 @@ export function main() {
         setNextCreep('Imp', getCreepStats('Imp').maxHP);
         // Clear the game logs.
         elements.log.innerText = '';
+
+        elements.button.submit.style.display = 'none';
     }
 
     function renderCreepDetails(name: string, stats: any) {
@@ -384,10 +387,17 @@ export function main() {
             }
             lastNickname = nickname;
 
+            let code = elements.tactics.value;
+            if (submittedSet[code]) {
+                console.log("don't send: already submitted");
+                return;
+            }
+            submittedSet[code] = true;
+
             const payload = {
                 'nickname': nickname,
                 'avatar': AVATAR_ID,
-                'code': elements.tactics.value,
+                'code': code,
             };
 
             var xhr = new XMLHttpRequest();
@@ -410,6 +420,7 @@ export function main() {
     const handlers = {
         victory: function() {
             elements.status.score.classList.add('text-green');
+            elements.button.submit.style.display = 'block';
         },
         defeat: function() {
             elements.avatar.pic.src = `img/dead_avatar/avatar${AVATAR_ID}.png`;
