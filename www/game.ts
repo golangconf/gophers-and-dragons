@@ -66,7 +66,6 @@ export function main() {
     const elements = {
         'details': document.getElementById('hover_details'),
         'tactics': document.getElementById('tactics_editor') as HTMLTextAreaElement,
-        'settings': document.getElementById('settings_editor') as HTMLTextAreaElement,
         'button': {
             'run': document.getElementById('button_run') as HTMLInputElement,
             'pause': document.getElementById('button_pause') as HTMLInputElement,
@@ -303,34 +302,13 @@ export function main() {
     }
 
     function applySettings() {
-        let settingsText = elements.settings.value;
-
-        try {
-            let x = JSON.parse(settingsText)
-            if (x.avatarHP) {
-                gameSettings.avatarHP = x.avatarHP;
-            }
-            if (x.avatarMP) {
-                gameSettings.avatarMP = x.avatarMP;
-            }
-            if (x.seed) {
-                gameSettings.seed = x.seed;
-            }
-        } catch (e) {
-            console.error("bad settings: " + e)
-        }
+        // This game content is removed.
     }
 
     function initGame() {
         let code = urlParams.get('code');
         if (code !== null) {
             elements.tactics.value = decodeCodeURI(code);
-        }
-
-        elements.tab.options[0].selected = true;
-
-        if (elements.settings.value === '') {
-            elements.settings.value = JSON.stringify(gameSettings, undefined, 4);
         }
 
         resetPage();
@@ -350,17 +328,6 @@ export function main() {
             }
             let creepStats = getCreepStats(nextCreep);
             renderCreepDetails(nextCreep, creepStats);
-        };
-
-        elements.tab.onchange = function(e) {
-            let selected = elements.tab.options[elements.tab.selectedIndex].value;
-            if (selected === 'tab_tactics') {
-                elements.tactics.style.display = '';
-                elements.settings.style.display = 'none';
-            } else if (selected === 'tab_settings') {
-                elements.tactics.style.display = 'none';
-                elements.settings.style.display = '';
-            }
         };
 
         let cardLabels = document.getElementsByClassName('card');
