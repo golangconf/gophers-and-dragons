@@ -66,6 +66,7 @@ The [game](https://godoc.org/github.com/golangconf/gophers-and-dragons/game) pac
 * You can use a `game.Cards[<CardType>]` to get arbitrary card stats
 * Retreating can be a valid choice in some situations
 * There are non-obvious approaches that may yield good results
+* Read the [game](https://godoc.org/github.com/golangconf/gophers-and-dragons/game) package doc comments if you don't understand something
 
 ## Controls
 
