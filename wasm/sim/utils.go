@@ -1,8 +1,8 @@
 package sim
 
 import (
-	"github.com/quasilyte/gophers-and-dragons/game"
-	"github.com/quasilyte/gophers-and-dragons/wasm/gamedata"
+	"github.com/golangconf/gophers-and-dragons/game"
+	"github.com/golangconf/gophers-and-dragons/wasm/gamedata"
 )
 
 func newCreep(typ game.CreepType) game.Creep {

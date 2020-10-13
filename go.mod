@@ -1,5 +1,7 @@
-module github.com/quasilyte/gophers-and-dragons
+module github.com/golangconf/gophers-and-dragons
 
 go 1.15
 
-require github.com/traefik/yaegi v0.9.1
+require (
+	github.com/traefik/yaegi v0.9.1
+)

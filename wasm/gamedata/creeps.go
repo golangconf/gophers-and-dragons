@@ -1,7 +1,7 @@
 package gamedata
 
 import (
-	"github.com/quasilyte/gophers-and-dragons/game"
+	"github.com/golangconf/gophers-and-dragons/game"
 )
 
 var creeps = map[game.CreepType]game.CreepStats{

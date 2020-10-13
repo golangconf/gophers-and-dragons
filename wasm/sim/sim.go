@@ -5,9 +5,9 @@ import (
 	"math/rand"
 	"runtime/debug"
 
-	"github.com/quasilyte/gophers-and-dragons/game"
-	"github.com/quasilyte/gophers-and-dragons/wasm/gamedata"
-	"github.com/quasilyte/gophers-and-dragons/wasm/simstep"
+	"github.com/golangconf/gophers-and-dragons/game"
+	"github.com/golangconf/gophers-and-dragons/wasm/gamedata"
+	"github.com/golangconf/gophers-and-dragons/wasm/simstep"
 )
 
 type Config struct {

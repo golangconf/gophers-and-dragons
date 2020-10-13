@@ -1,6 +1,6 @@
 package tactic
 
-import "github.com/quasilyte/gophers-and-dragons/game"
+import "github.com/golangconf/gophers-and-dragons/game"
 
 func ChooseCard(s game.State) game.CardType {
 	return tactic1(s)

@@ -17,7 +17,7 @@ The following tactic is a minimal solution for this (don't expect to get a high 
 ```go
 package tactic
 
-import "github.com/quasilyte/gophers-and-dragons/game"
+import "github.com/golangconf/gophers-and-dragons/game"
 
 func ChooseCard(s game.State) game.CardType {
 	return game.CardRetreat
@@ -34,7 +34,7 @@ So, a better tactic actually tries to fight some monsters.
 ```go
 package tactic
 
-import "github.com/quasilyte/gophers-and-dragons/game"
+import "github.com/golangconf/gophers-and-dragons/game"
 
 func ChooseCard(s game.State) game.CardType {
 	if s.Avatar.HP < 10 {
@@ -55,7 +55,7 @@ func ChooseCard(s game.State) game.CardType {
 }
 ```
 
-The [game](https://godoc.org/github.com/quasilyte/gophers-and-dragons/game) package contains most information that you'll need while writing your own tactic.
+The [game](https://godoc.org/github.com/golangconf/gophers-and-dragons/game) package contains most information that you'll need while writing your own tactic.
 
 ## Controls
 

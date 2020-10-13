@@ -9,10 +9,10 @@ import (
 	"syscall/js"
 	"time"
 
-	"github.com/quasilyte/gophers-and-dragons/game"
-	"github.com/quasilyte/gophers-and-dragons/wasm/gamedata"
-	"github.com/quasilyte/gophers-and-dragons/wasm/sim"
-	"github.com/quasilyte/gophers-and-dragons/wasm/simstep"
+	"github.com/golangconf/gophers-and-dragons/game"
+	"github.com/golangconf/gophers-and-dragons/wasm/gamedata"
+	"github.com/golangconf/gophers-and-dragons/wasm/sim"
+	"github.com/golangconf/gophers-and-dragons/wasm/simstep"
 	"github.com/traefik/yaegi/interp"
 	// "github.com/traefik/yaegi/stdlib"
 )
@@ -122,7 +122,7 @@ func runSimulation(config js.Value, code string) (actions []simstep.Action, err 
 	i := interp.New(interp.Options{})
 
 	i.Use(map[string]map[string]reflect.Value{
-		"github.com/quasilyte/gophers-and-dragons/game": {
+		"github.com/golangconf/gophers-and-dragons/game": {
 			"State":          reflect.ValueOf((*game.State)(nil)),
 			"Avatar":         reflect.ValueOf((*game.Avatar)(nil)),
 			"AvatarStats":    reflect.ValueOf((*game.AvatarStats)(nil)),
