@@ -159,6 +159,7 @@ const (
 	CreepImp
 	CreepLion
 	CreepFairy
+	CreepClaws
 	CreepMummy
 	CreepDragon
 )
@@ -187,4 +188,5 @@ const (
 	TraitWeakToFire
 	TraitSlow
 	TraitRanged
+	TraitBloodlust
 )

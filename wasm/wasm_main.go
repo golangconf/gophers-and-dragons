@@ -107,6 +107,8 @@ func getCreepStats(this js.Value, inputs []js.Value) interface{} {
 		typ = game.CreepLion
 	case "Fairy":
 		typ = game.CreepFairy
+	case "Claws":
+		typ = game.CreepClaws
 	case "Mummy":
 		typ = game.CreepMummy
 	case "Dragon":
@@ -140,6 +142,7 @@ func runSimulation(config js.Value, code string) (actions []simstep.Action, err 
 			"CreepImp":    reflect.ValueOf(game.CreepImp),
 			"CreepLion":   reflect.ValueOf(game.CreepLion),
 			"CreepFairy":  reflect.ValueOf(game.CreepFairy),
+			"CreepClaws":  reflect.ValueOf(game.CreepClaws),
 			"CreepMummy":  reflect.ValueOf(game.CreepMummy),
 			"CreepDragon": reflect.ValueOf(game.CreepDragon),
 
@@ -148,6 +151,7 @@ func runSimulation(config js.Value, code string) (actions []simstep.Action, err 
 			"TraitWeakToFire":    reflect.ValueOf(game.TraitWeakToFire),
 			"TraitSlow":          reflect.ValueOf(game.TraitSlow),
 			"TraitRanged":        reflect.ValueOf(game.TraitRanged),
+			"TraitBloodlust":     reflect.ValueOf(game.TraitBloodlust),
 
 			"CardMagicArrow":  reflect.ValueOf(game.CardMagicArrow),
 			"CardAttack":      reflect.ValueOf(game.CardAttack),

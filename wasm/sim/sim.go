@@ -169,10 +169,10 @@ func (r *runner) peekCreep(round int) game.CreepType {
 		return game.CreepFairy
 	case roll >= 30: // 20%
 		return game.CreepLion
-	case roll >= 10: // 20%
+	case roll >= 15: // 15%
 		return game.CreepImp
-	default: // 10%
-		return game.CreepCheepy
+	default: // 15%
+		return game.CreepClaws
 	}
 }
 
@@ -181,6 +181,9 @@ func (r *runner) runCreepAction(parried bool) {
 	avatar := &r.state.Avatar
 
 	damageRoll := r.rangeRand(creep.Damage)
+	if creep.Traits.Has(game.TraitBloodlust) && avatar.HP < 20 {
+		damageRoll *= 2
+	}
 	if parried {
 		if !creep.Traits.Has(game.TraitRanged) {
 			creep.HP -= damageRoll

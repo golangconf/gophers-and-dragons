@@ -39,6 +39,16 @@ var creeps = map[game.CreepType]game.CreepStats{
 		},
 	},
 
+	game.CreepClaws: {
+		MaxHP:       12,
+		Damage:      game.IntRange{3, 3},
+		ScoreReward: 11,
+		CardsReward: 2,
+		Traits: []game.CreepTrait{
+			game.TraitBloodlust,
+		},
+	},
+
 	game.CreepMummy: {
 		MaxHP:       18,
 		Damage:      game.IntRange{3, 4},
