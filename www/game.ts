@@ -381,13 +381,15 @@ export function main() {
 
         elements.button.submit.onclick = function (e) {
             let nickname = prompt('Your nickname (it will be used in the leaderboard)', lastNickname);
+            if (nickname === null) { // Cancel is pressed
+                return;
+            }
+            nickname = nickname.trim();
             if (nickname === '') {
                 alert("Please enter a non-empty nickname");
                 return;
             }
-            if (nickname === null) { // Cancel is pressed
-                return;
-            }
+
             lastNickname = nickname;
 
             let code = elements.tactics.value;
