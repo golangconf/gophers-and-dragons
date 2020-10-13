@@ -15,12 +15,13 @@ func _() {
 	_ = x[CreepFairy-4]
 	_ = x[CreepClaws-5]
 	_ = x[CreepMummy-6]
-	_ = x[CreepDragon-7]
+	_ = x[CreepKubus-7]
+	_ = x[CreepDragon-8]
 }
 
-const _CreepType_name = "NoneCheepyImpLionFairyClawsMummyDragon"
+const _CreepType_name = "NoneCheepyImpLionFairyClawsMummyKubusDragon"
 
-var _CreepType_index = [...]uint8{0, 4, 10, 13, 17, 22, 27, 32, 38}
+var _CreepType_index = [...]uint8{0, 4, 10, 13, 17, 22, 27, 32, 37, 43}
 
 func (i CreepType) String() string {
 	if i < 0 || i >= CreepType(len(_CreepType_index)-1) {

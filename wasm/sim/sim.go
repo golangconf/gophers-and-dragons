@@ -47,6 +47,9 @@ type runner struct {
 	chooseCard    func(game.State) game.CardType
 	peekableCards []game.CardType
 	badMoves      int
+
+	// How many attacks performed by a current creep.
+	creepAttacks int
 }
 
 func newRunner(config *Config, chooseCard func(game.State) game.CardType) *runner {
@@ -163,14 +166,16 @@ func (r *runner) peekCreep(round int) game.CreepType {
 	}
 
 	switch {
-	case roll >= 75: // 25%
+	case roll >= 80: // 20%
 		return game.CreepMummy
-	case roll >= 55: // 20%
+	case roll >= 60: // 20%
 		return game.CreepFairy
-	case roll >= 35: // 20%
+	case roll >= 45: // 20%
 		return game.CreepLion
-	case roll >= 20: // 15%
+	case roll >= 35: // 10%
 		return game.CreepImp
+	case roll >= 20: // 15%
+		return game.CreepKubus
 	default: // 20%
 		return game.CreepClaws
 	}
@@ -183,6 +188,9 @@ func (r *runner) runCreepAction(parried bool) {
 	damageRoll := r.rangeRand(creep.Damage)
 	if creep.Traits.Has(game.TraitBloodlust) && avatar.HP < 20 {
 		damageRoll *= 2
+	}
+	if creep.Traits.Has(game.TraitIncrementalComplexity) {
+		damageRoll += r.creepAttacks
 	}
 	if parried {
 		if !creep.Traits.Has(game.TraitRanged) {
@@ -197,6 +205,7 @@ func (r *runner) runCreepAction(parried bool) {
 	avatar.HP -= damageRoll
 	r.out = append(r.out, simstep.UpdateHP{Delta: -damageRoll})
 	r.emitRedLogf("%s deals %d damage", creep.Type.String(), damageRoll)
+	r.creepAttacks++
 }
 
 func (r *runner) runAvatarAction(cardType game.CardType, card game.CardStats) bool {
@@ -357,6 +366,7 @@ func (r *runner) runTurn() bool {
 func (r *runner) nextRound() {
 	r.state.Round++
 	r.state.RoundTurn = 0
+	r.creepAttacks = 0
 
 	r.state.Creep = newCreep(r.state.NextCreep)
 	r.state.NextCreep = r.peekCreep(r.state.Round + 1)

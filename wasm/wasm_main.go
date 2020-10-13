@@ -118,6 +118,8 @@ func getCreepStats(this js.Value, inputs []js.Value) interface{} {
 		typ = game.CreepClaws
 	case "Mummy":
 		typ = game.CreepMummy
+	case "Kubus":
+		typ = game.CreepKubus
 	case "Dragon":
 		typ = game.CreepDragon
 	default:

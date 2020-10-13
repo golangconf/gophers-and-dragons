@@ -14,11 +14,12 @@ func _() {
 	_ = x[TraitSlow-3]
 	_ = x[TraitRanged-4]
 	_ = x[TraitBloodlust-5]
+	_ = x[TraitIncrementalComplexity-6]
 }
 
-const _CreepTrait_name = "CowardMagicImmunityWeakToFireSlowRangedBloodlust"
+const _CreepTrait_name = "CowardMagicImmunityWeakToFireSlowRangedBloodlustIncrementalComplexity"
 
-var _CreepTrait_index = [...]uint8{0, 6, 19, 29, 33, 39, 48}
+var _CreepTrait_index = [...]uint8{0, 6, 19, 29, 33, 39, 48, 69}
 
 func (i CreepTrait) String() string {
 	if i < 0 || i >= CreepTrait(len(_CreepTrait_index)-1) {

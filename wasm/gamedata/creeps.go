@@ -60,6 +60,17 @@ var Creeps = map[game.CreepType]game.CreepStats{
 		},
 	},
 
+	game.CreepKubus: {
+		MaxHP:       20,
+		Damage:      game.IntRange{1, 1},
+		ScoreReward: 25,
+		CardsReward: 2,
+		Traits: []game.CreepTrait{
+			game.TraitIncrementalComplexity,
+			game.TraitSlow,
+		},
+	},
+
 	game.CreepDragon: {
 		MaxHP:       30,
 		Damage:      game.IntRange{5, 6},

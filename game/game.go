@@ -167,6 +167,7 @@ const (
 	CreepFairy
 	CreepClaws
 	CreepMummy
+	CreepKubus
 	CreepDragon
 )
 
@@ -195,4 +196,5 @@ const (
 	TraitSlow
 	TraitRanged
 	TraitBloodlust
+	TraitIncrementalComplexity
 )
