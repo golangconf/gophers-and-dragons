@@ -124,4 +124,4 @@ Cards that need to be obtained before becoming available:
 ## Known issues and limitations
 
 * If your tactic panics, you won't get a stack trace
-* If [yaegi](https://github.com/traefik/yaegi) fails to parse/compile/run your code, you'll have to change it even if it's a valid Go code
+* If [yaegi](https://github.com/traefik/yaegi) fails to compile or run your code, you'll have to change it even if it's a valid Go code
