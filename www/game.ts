@@ -71,7 +71,7 @@ export function main() {
             'pause': document.getElementById('button_pause') as HTMLInputElement,
             'nextTurn': document.getElementById('button_next_turn') as HTMLInputElement,
             'format': document.getElementById('button_format') as HTMLInputElement,
-            'share': document.getElementById('button_share') as HTMLInputElement,
+            'submit': document.getElementById('button_submit') as HTMLInputElement,
         },
         'speed': document.getElementById('select_speed') as HTMLSelectElement,
         'tab': document.getElementById('select_tab') as HTMLSelectElement,
@@ -131,6 +131,7 @@ export function main() {
     let paused = false;
     let currentSimulationInterval = null;
     let currentSimulationPlayer: SimulationPlayer = null;
+    let lastNickname = '';
 
     function setCreep(name: string, hp: number) {
         elements.creep.pic.src = `img/creep/${name}.png`;
@@ -156,25 +157,6 @@ export function main() {
     function decodeCodeURI(uri: string): string {
         let code = LZString.decompressFromEncodedURIComponent(uri);
         return gofmt(code);
-    }
-
-    function shareURL() {
-        let code = elements.tactics.value;
-        let codeURI = encodeCodeURI(code);
-
-        let site = 'https://quasilyte.dev/gophers-and-dragons/game.html';
-        if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
-            site = `http://${location.host}/game.html`;
-        }
-
-        if (codeURI.length > 1800) {
-            return '';
-        }
-
-        var params = [];
-        params.push(`avatar=${AVATAR_ID}`);
-        params.push(`code=${codeURI}`);
-        return site + '?' + params.join('&');
     }
 
     function resetPage() {
@@ -391,13 +373,33 @@ export function main() {
             }
         });
 
-        elements.button.share.onclick = function (e) {
-            let url = shareURL();
-            if (url) {
-                copyToClipboard(url);
-            } else {
-                alert('Your code is too big to be shared');
+        elements.button.submit.onclick = function (e) {
+            let nickname = prompt('Your nickname (it will be used in the leaderboard)', lastNickname);
+            if (nickname === '') {
+                alert("Please enter a non-empty nickname");
+                return;
             }
+            if (nickname === null) { // Cancel is pressed
+                return;
+            }
+            lastNickname = nickname;
+
+            const payload = {
+                'nickname': nickname,
+                'avatar': AVATAR_ID,
+                'code': elements.tactics.value,
+            };
+
+            var xhr = new XMLHttpRequest();
+            var url = "https://ater.me/GnD/submit";
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log("server response:", xhr.responseText);
+                }
+            };
+            xhr.send(JSON.stringify(payload));
         };
 
         elements.button.pause.onclick = function(e) {
