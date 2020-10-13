@@ -57,6 +57,12 @@ func ChooseCard(s game.State) game.CardType {
 
 The [game](https://godoc.org/github.com/golangconf/gophers-and-dragons/game) package contains most information that you'll need while writing your own tactic.
 
+## Hints
+
+* Don't forget that you can use global vars, constants and types; almost anything you may want to use
+* You can use a `game.Creeps[<CreepType>]` to get arbitrary creep stats
+* You can use a `game.Cards[<CardType>]` to get arbitrary card stats
+
 ## Controls
 
 | Name | Description |
@@ -114,3 +120,8 @@ Cards that need to be obtained before becoming available:
 | WeakToFire | Fire attacks deal x2 damage |
 | Slow | When running away from a slow enemy, no damage is taken |
 | MagicImmunity | 100% magic damage resist |
+
+## Known issues and limitations
+
+* If your tactic panics, you won't get a stack trace
+* If [yaegi](https://github.com/traefik/yaegi) fails to parse/compile/run your code, you'll have to change it even if it's a valid Go code
