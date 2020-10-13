@@ -163,15 +163,15 @@ func (r *runner) peekCreep(round int) game.CreepType {
 	}
 
 	switch {
-	case roll >= 70: // 30%
+	case roll >= 75: // 25%
 		return game.CreepMummy
-	case roll >= 50: // 20%
+	case roll >= 55: // 20%
 		return game.CreepFairy
-	case roll >= 30: // 20%
+	case roll >= 35: // 20%
 		return game.CreepLion
-	case roll >= 15: // 15%
+	case roll >= 20: // 15%
 		return game.CreepImp
-	default: // 15%
+	default: // 20%
 		return game.CreepClaws
 	}
 }
