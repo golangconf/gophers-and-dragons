@@ -4,7 +4,7 @@ import (
 	"github.com/golangconf/gophers-and-dragons/game"
 )
 
-var creeps = map[game.CreepType]game.CreepStats{
+var Creeps = map[game.CreepType]game.CreepStats{
 	game.CreepCheepy: {
 		MaxHP:       4,
 		Damage:      game.IntRange{1, 4},
@@ -72,5 +72,5 @@ var creeps = map[game.CreepType]game.CreepStats{
 }
 
 func GetCreepStats(typ game.CreepType) game.CreepStats {
-	return creeps[typ]
+	return Creeps[typ]
 }

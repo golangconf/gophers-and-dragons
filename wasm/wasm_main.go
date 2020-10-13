@@ -18,6 +18,13 @@ import (
 )
 
 func main() {
+	for typ, stats := range gamedata.Creeps {
+		game.Creeps[typ] = stats
+	}
+	for typ, stats := range gamedata.Cards {
+		game.Cards[typ] = stats
+	}
+
 	js.Global().Set("gominify", js.FuncOf(gominify))
 	js.Global().Set("gofmt", js.FuncOf(gofmt))
 	js.Global().Set("evalGo", js.FuncOf(evalGo))
@@ -125,6 +132,9 @@ func runSimulation(config js.Value, code string) (actions []simstep.Action, err 
 
 	i.Use(map[string]map[string]reflect.Value{
 		"github.com/golangconf/gophers-and-dragons/game": {
+			"Creeps": reflect.ValueOf(game.Creeps),
+			"Cards":  reflect.ValueOf(game.Cards),
+
 			"State":          reflect.ValueOf((*game.State)(nil)),
 			"Avatar":         reflect.ValueOf((*game.Avatar)(nil)),
 			"AvatarStats":    reflect.ValueOf((*game.AvatarStats)(nil)),

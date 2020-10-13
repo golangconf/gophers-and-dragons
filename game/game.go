@@ -1,5 +1,11 @@
 package game
 
+// Creeps is a way to inspect a specific creep stats without having a Creep object.
+var Creeps = map[CreepType]CreepStats{}
+
+// Cards is a way to inspect a specific card stats without having a Card object.
+var Cards = map[CardType]CardStats{}
+
 // State is a current game state as percieved by the current turn.
 type State struct {
 	// Turn is a current turn number.
