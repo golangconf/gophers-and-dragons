@@ -370,6 +370,9 @@ export function main() {
         });
         document.addEventListener('keydown', function(e) {
             let textareaFocused = (elements.tactics === document.activeElement);
+            if (textareaFocused) {
+                elements.button.submit.style.display = 'none';
+            }
             if (e.code === 'Tab' && textareaFocused) {
                 e.preventDefault();
                 insertText(elements.tactics, '    ');
