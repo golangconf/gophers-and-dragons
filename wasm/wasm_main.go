@@ -156,6 +156,7 @@ func runSimulation(config js.Value, code string) (actions []simstep.Action, err 
 			"CreepFairy":  reflect.ValueOf(game.CreepFairy),
 			"CreepClaws":  reflect.ValueOf(game.CreepClaws),
 			"CreepMummy":  reflect.ValueOf(game.CreepMummy),
+			"CreepKubus":  reflect.ValueOf(game.CreepKubus),
 			"CreepDragon": reflect.ValueOf(game.CreepDragon),
 
 			"TraitCoward":                reflect.ValueOf(game.TraitCoward),
