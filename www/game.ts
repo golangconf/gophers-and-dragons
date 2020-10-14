@@ -113,7 +113,7 @@ export function main() {
         seed: null,
     }
 
-    const NUM_ROUNDS = 13;
+    const NUM_ROUNDS = 12;
     const AVATAR_ID = urlParams.get('avatar') || rand(5);
 
     const cardDescriptions = {
